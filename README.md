@@ -1,12 +1,139 @@
-# Friday Night Funkin' - Psych Engine
-Engine originally used on [Mind Games Mod](https://gamebanana.com/mods/301107), intended to be a fix for the vanilla version's many issues while keeping the casual play aspect of it. Also aiming to be an easier alternative to newbie coders.
+# Friday Night Funkin' - Tank Engine
+A Psych Engine modification, intended to fix vanilla and Psych Engine version's many issues while keeping most of the casual play aspect of it.
 
-## Installation:
-You must have [the most up-to-date version of Haxe](https://haxe.org/download/), seriously, stop using 4.1.5, it misses some stuff.
+# Installation:
+You must have [the most up-to-date version of Haxe](https://haxe.org/download/) *(sometimes you have to downgrade though)*, seriously, stop using 4.1.5, it misses some stuff.
 
-open up a Command Prompt/PowerShell or Terminal, type `haxelib install hmm`
+### Dependencies
+• Git
 
-after it finishes, simply type `haxelib run hmm install` in order to install all the needed libraries for *Psych Engine!*
+• Haxe (Latest, not 4.2.X)
+
+• VS Community (Windows only!. This guide provides instructions for installing VS!)
+
+• 25 gigs of space (Windows only, due to Visual Studio and other shit)
+
+• 1-5 gigs of space (Non-Windows)
+
+• Some Command Line Knowledge (Ninjamuffin made a tutorial https://ninjamuffin99.newgrounds.com/news/post/1090480 or you can google)
+
+**OPTIONAL Dependencies**
+
+• VS Code [download](https://code.visualstudio.com/) *(for modifying code itself if you don't want to use VSC. VSC Isn't VS CODE!)*
+
+• Sublime Text [download](https://www.sublimetext.com/)
+
+### Recommended VS Code Extensions
+
+• Lime
+
+• HXCPP Debugger
+
+• Tabline
+
+# Downloads
+## GIT
+### Windows/Mac:
+
+[Install Git](https://git-scm.com/downloads)
+
+### Linux (Ubuntu/Debian based Distros):
+
+*(replace apt with apt-get if necessary)*
+
+```sudo apt update;sudo apt install git -y```
+
+### Linux (Arch based Distros):
+
+```sudo pacman -Sy git --noconfirm```
+
+
+## Haxe
+
+### Windows/Mac:
+
+[Click here to download Haxe](https://haxe.org/download/)
+
+### Linux (Ubuntu/Debian based Distros):
+
+```
+sudo add-apt-repository ppa:haxe/releases -y
+sudo apt update
+sudo apt install haxe -y
+mkdir ~/haxelib && haxelib setup ~/haxelib
+```
+
+
+### Linux (Arch based Distros):
+
+```
+sudo pacman -Sy haxe --noconfirm
+mkdir ~/haxelib;
+haxelib setup ~/haxelib
+```
+
+
+
+## VS Community Setup(Windows Only)
+
+***For Windows, you need to install Visual Studio Community from [here.](https://visualstudio.microsoft.com/downloads/). While installing VSC, don't click on any of the options to install workloads. Instead, go to the individual components tab and choose the following:***
+
+
+• MSVC vXXX - C++ x64/x86 build tools
+
+• Windows SDK (Latest version)
+
+***It is recommended to reboot your PC once it finishes, but it's not required.***
+
+## Terminal Setup & Compiling Game
+
+• Windows: Press "Windows+R" and type in "cmd", if you don't like cmd, or you just use something different, open that program instead. Make sure to use normal CMD, not admin CMD
+
+CMD is preinstalled, so it's easier to work with.
+
+• Most Linux Distros: Usually you can find your Terminal in your applications menu, or press Ctrl+Alt+2-6 to open the TTY. Ctrl+Alt+7, Ctrl+Alt+1 or Ctrl+Alt+2 usually get you back to your desktop
+
+• Mac: Press cmd+space and type "Terminal" into spotlight or open Launchpad and look for Terminal
+
+Type in these commands:
+```
+haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc
+haxelib git linc_luajit https://github.com/superpowers04/linc_luajit
+haxelib git hxvm-luajit https://github.com/nebulazorua/hxvm-luajit
+haxelib install lime
+haxelib install openfl
+haxelib install flixel
+haxelib install flixel-ui
+haxelib install hscript
+haxelib install flixel-tools
+haxelib install flixel-addons
+haxelib install actuate
+haxelib install hxCodec
+haxelib run lime setup
+haxelib run lime setup flixel
+haxelib run flixel-tools setup
+```
+
+
+***Read carefully when it prompts for you to do anything (like: setup the lime command, setup flixel tools, etc)***
+
+`Run lime setup (PLATFORM)` (Replace (PLATFORM) with your device's platform. e.g windows, macos, linux, etc)
+
+## Compiling Builds
+
+To compile without running, run lime build (PLATFORM) (Replace platform with your device's platform)
+
+Note that the first build will always be longer than the rest
+
+If you get errors, refer to the forum posts in this channel before asking for help
+
+**To compile & run, run `lime test PLATFORM`**
+
+**Add a "-debug" flag at the end of your lime command**
+### Examples:
+`lime test windows`
+
+`lime build linux -debug`
 
 ## Customization:
 
@@ -19,6 +146,7 @@ to start you off, disabling Videos should be simple, simply Delete the line `"VI
 same goes for *Lua Scripts*, comment out or delete the line with `LUA_ALLOWED`, this and other customization options are all available within the `Project.xml` file
 
 ## Credits:
+* HassanGR - Modificator or somethin
 * Shadow Mario - Programmer
 * RiverOaken - Artist
 * Yoshubs - Assistant Programmer
@@ -45,61 +173,3 @@ _____________________________________
 ## Mod Support
 * Probably one of the main points of this engine, you can code in .lua files outside of the source code, making your own weeks without even messing with the source!
 * Comes with a Mod Organizing/Disabling Menu.
-
-
-## Atleast one change to every week:
-### Week 1:
-  * New Dad Left sing sprite
-  * Unused stage lights are now used
-### Week 2:
-  * Both BF and Skid & Pump does "Hey!" animations
-  * Thunders does a quick light flash and zooms the camera in slightly
-  * Added a quick transition/cutscene to Monster
-### Week 3:
-  * BF does "Hey!" during Philly Nice
-  * Blammed has a cool new colors flash during that sick part of the song
-### Week 4:
-  * Better hair physics for Mom/Boyfriend (Maybe even slightly better than Week 7's :eyes:)
-  * Henchmen die during all songs. Yeah :(
-### Week 5:
-  * Bottom Boppers and GF does "Hey!" animations during Cocoa and Eggnog
-  * On Winter Horrorland, GF bops her head slower in some parts of the song.
-### Week 6:
-  * On Thorns, the HUD is hidden during the cutscene
-  * Also there's the Background girls being spooky during the "Hey!" parts of the Instrumental
-
-## Cool new Chart Editor changes and countless bug fixes
-![](https://github.com/ShadowMario/FNF-PsychEngine/blob/main/docs/img/chart.png?raw=true)
-* You can now chart "Event" notes, which are bookmarks that trigger specific actions that usually were hardcoded on the vanilla version of the game.
-* Your song's BPM can now have decimal values
-* You can manually adjust a Note's strum time if you're really going for milisecond precision
-* You can change a note's type on the Editor, it comes with two example types:
-  * Alt Animation: Forces an alt animation to play, useful for songs like Ugh/Stress
-  * Hey: Forces a "Hey" animation instead of the base Sing animation, if Boyfriend hits this note, Girlfriend will do a "Hey!" too.
-
-## Multiple editors to assist you in making your own Mod
-![Screenshot_3](https://user-images.githubusercontent.com/44785097/144629914-1fe55999-2f18-4cc1-bc70-afe616d74ae5.png)
-* Working both for Source code modding and Downloaded builds!
-
-## Story mode menu rework:
-![](https://i.imgur.com/UB2EKpV.png)
-* Added a different BG to every song (less Tutorial)
-* All menu characters are now in individual spritesheets, makes modding it easier.
-
-## Credits menu
-![Screenshot_1](https://user-images.githubusercontent.com/44785097/144632635-f263fb22-b879-4d6b-96d6-865e9562b907.png)
-* You can add a head icon, name, description and a Redirect link for when the player presses Enter while the item is currently selected.
-
-## Awards/Achievements
-* The engine comes with 16 example achievements that you can mess with and learn how it works (Check Achievements.hx and search for "checkForAchievement" on PlayState.hx)
-
-## Options menu:
-* You can change Note colors, Delay and Combo Offset, Controls and Preferences there.
- * On Preferences you can toggle Downscroll, Middlescroll, Anti-Aliasing, Framerate, Low Quality, Note Splashes, Flashing Lights, etc.
-
-## Other gameplay features:
-* When the enemy hits a note, their strum note also glows.
-* Lag doesn't impact the camera movement and player icon scaling anymore.
-* Some stuff based on Week 7's changes has been put in (Background colors on Freeplay, Note splashes)
-* You can reset your Score on Freeplay/Story Mode by pressing Reset button.
-* You can listen to a song or adjust Scroll Speed/Damage taken/etc. on Freeplay by pressing Space.
